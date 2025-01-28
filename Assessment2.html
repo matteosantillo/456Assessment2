@@ -41,24 +41,24 @@
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     }).addTo(map);
 
-   // Create a custom icon
+
    var hurricaneIcon = L.icon({
       iconUrl: 'https://static-00.iconduck.com/assets.00/hurricane-icon-2048x1934-s8gb7qbq.png', 
       iconSize: [30, 30], 
       iconAnchor: [15, 15] 
     });
 
-    // Create a GeoJSON layer with pointToLayer function
+
     var hurricaneLayer = L.geoJSON(pointsH, { 
       pointToLayer: function(feature, latlng) {
         return L.marker(latlng, {icon: hurricaneIcon})
           .bindPopup("<b>Tropical Storm Mindy</b><br>" + 
                      
-                     "<img src='https://static.wikia.nocookie.net/hypotheticalhurricanes/images/b/b5/Isabel_2003-09-12_1815Z.png/revision/latest?cb=20200805052559' width='100'>"); // Replace with your image path
+                     "<img src='/Users/matteosantillo/Desktop/basicHTML/hurricanemindy.png' width='100'>"); // Replace with your image path
       }
     }).addTo(map);
 
-    // Fit the map bounds to the hurricane track
+
     map.fitBounds(hurricaneLayer.getBounds().pad(0.2));
 
   </script>
